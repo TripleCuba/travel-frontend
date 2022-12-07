@@ -1,38 +1,161 @@
-.App {
+@font-face {
+  font-family: "TitleFont";
+  src: url("/public/fonts/YDGothic/YDGothic.ttf");
+}
+
+@font-face {
+  font-family: "ParagraphFont";
+  src: url("/public/fonts/Geogrotesque-UltraLight/Geogrotesque-UltraLight.ttf");
+}
+
+.navBar {
+  font-family: "TitleFont", sans-serif;
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #ebecf0;
+}
+
+.navBar div {
+  margin: 0 1rem;
+}
+
+.navBar div button {
+  border: none;
+  background-color: #ebecf0;
+  padding: 1.5rem 1rem;
+  font-size: 1.5rem;
+  height: 100%;
+}
+
+.navBar div button:hover {
+  background-color: #e2e3e8;
+}
+
+h1,
+label,
+h3,
+button {
+  font-family: "TitleFont", sans-serif;
+}
+
+p,
+input {
+  font-family: "ParagraphFont", sans-serif;
+}
+
+.title {
+  margin-top: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.paragraph {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subTitle {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.accountsForm {
+  gap: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 75%;
+  margin: 4rem auto;
+  font-size: 1.2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.accountsForm input {
+  border-radius: 10px;
+  padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message {
+  text-align: center;
 }
+
+.message p {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.destinationCards {
+  margin-top: rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.destinationCards .card {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  -webkit-box-shadow: 1px 1px 5px gray;
+          box-shadow: 1px 1px 5px gray;
+}
+
+.destinationCards .card button {
+  background-color: #ebecf0;
+  border: none;
+  padding: 1rem;
+  -webkit-box-shadow: 2px 4px 2px -2px gray;
+          box-shadow: 2px 4px 2px -2px gray;
+  width: 75%;
+  border-radius: 5px;
+}
+
+.destinationCards .card button:hover {
+  background-color: #e2e3e8;
+}
+
+.townCards {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+}
+
+.townCards li {
+  font-size: 1rem;
+  margin: 0.5rem auto;
+  width: 75%;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 5px 10px gray;
+          box-shadow: 1px 5px 10px gray;
+  padding: 1rem;
+}
+
+.townCards li button {
+  background-color: #ebecf0;
+  border: none;
+  padding: 0.5rem;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.townCards li button:hover {
+  background-color: #e2e3e8;
+}
+/*# sourceMappingURL=App.css.map */

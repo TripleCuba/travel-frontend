@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "TitleFont";
+  src: url("/public/fonts/YDGothic/YDGothic.ttf");
+}
+@font-face {
+  font-family: "ParagraphFont";
+  src: url("/public/fonts/Geogrotesque-UltraLight/Geogrotesque-UltraLight.ttf");
+}
+$customGray: #ebecf0;
+$customHoverGray: #e2e3e8;
+
+.navBar {
+  font-family: "TitleFont", sans-serif;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: $customGray;
+  div {
+    margin: 0 1rem;
+    button {
+      border: none;
+      background-color: $customGray;
+      padding: 1.5rem 1rem;
+      font-size: 1.5rem;
+      height: 100%;
+    }
+    button:hover {
+      background-color: $customHoverGray;
+    }
+  }
+}
+h1,
+label,
+h3,
+button {
+  font-family: "TitleFont", sans-serif;
+}
+p,
+input {
+  font-family: "ParagraphFont", sans-serif;
+}
+
+.title {
+  margin-top: 2rem;
+  text-align: center;
+}
+.paragraph {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.subTitle {
+  text-align: center;
+  margin-top: 2rem;
+}
+.accountsForm {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 4rem auto;
+  font-size: 1.2rem;
+  input {
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+}
+.message {
+  text-align: center;
+  p {
+    font-size: 1.5rem;
+    color: red;
+  }
+}
+.destinationCards {
+  margin-top: rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .card {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    button {
+      background-color: $customGray;
+      border: none;
+      padding: 1rem;
+      box-shadow: 2px 4px 2px -2px gray;
+      width: 75%;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: $customHoverGray;
+    }
+
+    box-shadow: 1px 1px 5px gray;
+  }
+}
+.townCards {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+  li {
+    font-size: 1rem;
+    margin: 0.5rem auto;
+    width: 75%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1px 5px 10px gray;
+    padding: 1rem;
+    button {
+      background-color: $customGray;
+      border: none;
+      padding: 0.5rem;
+      width: 50%;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: $customHoverGray;
+    }
+  }
+}
