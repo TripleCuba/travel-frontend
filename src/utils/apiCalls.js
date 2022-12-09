@@ -16,3 +16,8 @@ export const getTowns = async (id) => {
   const resp = await axios.get(`${BASE_URL}/towns/${id}`);
   return resp.data;
 };
+
+export const getHotels = async (id) => {
+  const resp = await axios.get(`${BASE_URL}/hotels/${id}`);
+  return resp.data;
+};

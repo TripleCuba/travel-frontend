@@ -124,7 +124,7 @@ input {
   background-color: #e2e3e8;
 }
 
-.townCards {
+.listCards {
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,7 +136,7 @@ input {
   list-style: none;
 }
 
-.townCards li {
+.listCards li {
   font-size: 1rem;
   margin: 0.5rem auto;
   width: 75%;
@@ -147,7 +147,7 @@ input {
   padding: 1rem;
 }
 
-.townCards li button {
+.listCards li button {
   background-color: #ebecf0;
   border: none;
   padding: 0.5rem;
@@ -155,7 +155,7 @@ input {
   border-radius: 5px;
 }
 
-.townCards li button:hover {
+.listCards li button:hover {
   background-color: #e2e3e8;
 }
 /*# sourceMappingURL=App.css.map */

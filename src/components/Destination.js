@@ -26,7 +26,7 @@ const Destination = () => {
           <h1 className="title">{currentDestination.destination}</h1>
           <p className="paragraph">{currentDestination.description}</p>
           <h3 className="subTitle">Cities/Towns</h3>
-          <ul className="townCards">
+          <ul className="listCards">
             {currentDestination.towns.map((item) => (
               <li key={item.id}>
                 <h3>{item.title}</h3>
