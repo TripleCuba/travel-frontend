@@ -82,7 +82,7 @@ const Registration = () => {
           onClick={(e) => submitFormData(e)}
         />
       </form>
-      <button onClick={() => console.log(Object.values(response))}>test</button>
+      <button onClick={() => console.log(formData)}>test</button>
     </div>
   );
 };
