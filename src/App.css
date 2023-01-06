@@ -158,4 +158,16 @@ input {
 .listCards li button:hover {
   background-color: #e2e3e8;
 }
+
+.selectRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  margin: auto;
+}
+
+.selectRange p {
+  width: 100%;
+}
 /*# sourceMappingURL=App.css.map */

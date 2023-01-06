@@ -1,7 +1,17 @@
 import React, { useState } from "react";
-import { sendRegistrationForm } from "../../utils/userApiCalls";
+import { getUserData, sendRegistrationForm } from "../../utils/userApiCalls";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/user";
 
 const Registration = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    token && navigate("/");
+  });
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -22,12 +32,15 @@ const Registration = () => {
     const resp = await sendRegistrationForm(formData);
     console.log(resp);
     setResponse(resp);
-    setFormData({
-      username: "",
-      email: "",
-      password: "",
-      password2: "",
-    });
+    localStorage.setItem("token", resp.token);
+    const user = await getUserData(resp.token);
+    dispatch(
+      login({
+        username: user.username,
+        email: user.email,
+        isAuthenticated: true,
+      })
+    );
   };
   return (
     <div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../features/user";
+import { logout } from "../../features/user";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.value);
@@ -24,8 +24,8 @@ const Navbar = () => {
       {user.isAuthenticated ? (
         <div>
           <button>Hey {user.username}</button>
-          <Link to="/cart">
-            <button>Cart</button>
+          <Link to="/reservations">
+            <button>Reservations</button>
           </Link>
           <button onClick={logOut}>Log Out</button>
         </div>

@@ -3,8 +3,15 @@ import { useState } from "react";
 import { getUserData, sendLoginForm } from "../../utils/userApiCalls";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/user";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    token && navigate("/");
+  });
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -31,6 +38,7 @@ const Login = () => {
         isAuthenticated: true,
       })
     );
+    navigate("/");
   };
   return (
     <div>

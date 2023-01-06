@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
-import { getTowns, getDestination } from "../utils/apiCalls";
+import { getTowns, getDestination } from "../../utils/apiCalls";
 
 const Destination = () => {
   const navigate = useNavigate();

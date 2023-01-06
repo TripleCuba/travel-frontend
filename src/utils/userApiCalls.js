@@ -12,8 +12,13 @@ export const sendLoginForm = async (data) => {
 };
 
 export const getUserData = async (token) => {
-  const resp = await axios.get(`${baseUrl}get_user/`, {
-    headers: { Authorization: `Token ${token}` },
-  });
-  return resp.data;
+  try {
+    const resp = await axios.get(`${baseUrl}get_user/`, {
+      headers: { Authorization: `Token ${token}` },
+    });
+    return resp.data;
+  } catch (err) {
+    const resp = err;
+    return resp.request.status;
+  }
 };

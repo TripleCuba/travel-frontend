@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { getDestinations } from "../utils/apiCalls";
+import { getDestinations } from "../../utils/apiCalls";
 const Destinations = () => {
   const [destinations, setDestinations] = useState([]);
   const getData = async () => {
