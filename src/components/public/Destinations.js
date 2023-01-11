@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { getDestinations } from "../../utils/apiCalls";
 const Destinations = () => {
+  const BASE_IMG_URL = "https://res.cloudinary.com/dkeewhdlg";
   const [destinations, setDestinations] = useState([]);
   const getData = async () => {
     const destinations = await getDestinations();
@@ -19,9 +20,18 @@ const Destinations = () => {
       <div className="destinationCards">
         {destinations.map((item, i) => (
           <div className="card" key={i}>
-            <h1>{item.destination}</h1>
-            <p className="paragraph">{item.description}</p>
-            <button onClick={() => navigate(`${item.id}`)}>Check more!</button>
+            <img
+              className="coverImg"
+              src={`${BASE_IMG_URL}/${item.image}`}
+              alt="cover"
+            ></img>
+            <div>
+              <h1>{item.destination}</h1>
+              <p className="paragraph">{item.description}</p>
+              <button onClick={() => navigate(`${item.id}`)}>
+                Check more!
+              </button>
+            </div>
           </div>
         ))}
       </div>

@@ -2,21 +2,27 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { getRooms } from "../../utils/apiCalls";
 import ReservationPopUp from "./ReservationPopUp";
 
 const Hotel = () => {
   const { hotel } = useParams();
   const [myHotel, setMyHotel] = useState();
-  const [guests, setGuests] = useState(2);
+  const [errMessage, setErrMessage] = useState();
   const [popUpStatus, setPopUpStatus] = useState(false);
   const [idForPopUp, setIdForPopUp] = useState();
   const [token, setToken] = useState();
   const [roomData, setRoomData] = useState();
 
   const handlePopUp = (id, data) => {
-    popUpStatus ? setPopUpStatus(false) : setPopUpStatus(true);
-    setToken(localStorage.getItem("token"));
+    let myToken = localStorage.getItem("token");
+    myToken
+      ? popUpStatus
+        ? setPopUpStatus(false)
+        : setPopUpStatus(true)
+      : setErrMessage("Login to continue");
+    setToken(myToken);
     setIdForPopUp(id);
     setRoomData(data);
   };
@@ -29,9 +35,12 @@ const Hotel = () => {
     getData(hotel);
   }, []);
   return (
-    <div>
+    <div className="hotelList">
       {myHotel && (
         <div>
+          <Link to="/login">
+            <h3 className="subTitle">{errMessage && errMessage}</h3>
+          </Link>
           {myHotel.length ? (
             <ul className="listCards">
               {myHotel.map((room) => (
@@ -39,23 +48,11 @@ const Hotel = () => {
                   <h1>{room.title}</h1>
                   <h3>{room.room_number}</h3>
                   <p>For {room.capacity} persons</p>
-                  <h3>How many guests?</h3>
-                  <div className="selectRange">
-                    <input
-                      type="range"
-                      min="1"
-                      max={room.capacity}
-                      value={guests}
-                      onChange={(e) => setGuests(e.target.value)}
-                    ></input>
-                    {guests > 1 ? (
-                      <p>{guests} guests </p>
-                    ) : (
-                      <p>{guests} guest </p>
-                    )}
-                  </div>
                   <h3> {room.is_available ? "available" : "not available"}</h3>
-                  <button onClick={() => handlePopUp(room.id, room)}>
+                  <button
+                    disabled={popUpStatus}
+                    onClick={() => handlePopUp(room.id, room)}
+                  >
                     popup
                   </button>
                 </li>
@@ -68,10 +65,10 @@ const Hotel = () => {
       )}
       <ReservationPopUp
         trigger={popUpStatus}
-        guests={guests}
         idForPopUp={idForPopUp}
         token={token}
         roomData={roomData}
+        setPopUpStatus={setPopUpStatus}
       />
     </div>
   );

@@ -9,6 +9,11 @@
 $customGray: #ebecf0;
 $customHoverGray: #e2e3e8;
 
+.App {
+  width: 75%;
+  margin: 0 auto;
+}
+
 .navBar {
   font-family: "TitleFont", sans-serif;
   margin-top: 1rem;
@@ -20,8 +25,8 @@ $customHoverGray: #e2e3e8;
     button {
       border: none;
       background-color: $customGray;
-      padding: 1.5rem 1rem;
-      font-size: 1.5rem;
+      padding: 1rem 0.5rem;
+      font-size: 1rem;
       height: 100%;
     }
     button:hover {
@@ -46,7 +51,7 @@ input {
 }
 .paragraph {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .subTitle {
   text-align: center;
@@ -72,26 +77,35 @@ input {
   }
 }
 .destinationCards {
-  margin-top: rem;
   display: flex;
   flex-direction: column;
   text-align: center;
+
   .card {
+    .coverImg {
+      width: 40%;
+      object-fit: cover;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    div {
+      width: 100%;
+    }
+    display: flex;
     margin-top: 1rem;
     padding: 1rem 0;
+    border: solid 1px rgb(159, 154, 154);
+    border-radius: 5px;
     button {
       background-color: $customGray;
       border: none;
       padding: 1rem;
-      box-shadow: 2px 4px 2px -2px gray;
       width: 75%;
       border-radius: 5px;
     }
     button:hover {
       background-color: $customHoverGray;
     }
-
-    box-shadow: 1px 1px 5px gray;
   }
 }
 .listCards {
@@ -126,5 +140,26 @@ input {
   margin: auto;
   p {
     width: 100%;
+  }
+}
+.hotelList {
+  position: relative;
+  .popUp {
+    width: 50%;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(146, 91, 91, 0.959);
+    .popUpIn {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
   }
 }
