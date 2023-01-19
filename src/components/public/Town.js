@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import { getHotels, getTown } from "../../utils/apiCalls";
 
 const Town = () => {
+  const BASE_IMG_URL = "https://res.cloudinary.com/dkeewhdlg";
   const navigate = useNavigate();
   const [hotelList, setHotelList] = useState([]);
   const [currentTown, setCurrentTown] = useState({});
@@ -26,19 +27,28 @@ const Town = () => {
   return (
     <div>
       {!hotelList && getTownData(town)}
-      <div className="townData">
+      <div className="coverDiv">
         <h1 className="title">{currentTown.title}</h1>
         <p className="paragraph">{currentTown.description}</p>
+        <img
+          className="coverImg"
+          src={`${BASE_IMG_URL}/${currentTown.image}`}
+          alt="hotel"
+        />
       </div>
+
       <ul className="listCards">
         {hotelList.length &&
           hotelList.map((hotel) => (
             <li key={hotel.id}>
-              <h3>{hotel.title}</h3>
-              <p>{hotel.rating}</p>
-              <button onClick={() => navigate(`/hotel/${hotel.id}`)}>
-                Check {hotel.title} rooms
-              </button>
+              <img src={`${BASE_IMG_URL}/${hotel.image}`} alt="hotel" />
+              <div>
+                <h3>{hotel.title}</h3>
+                <p>{hotel.rating}</p>
+                <button onClick={() => navigate(`/hotel/${hotel.id}`)}>
+                  Check {hotel.title} rooms
+                </button>
+              </div>
             </li>
           ))}
       </ul>

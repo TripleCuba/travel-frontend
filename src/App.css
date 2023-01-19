@@ -141,6 +141,18 @@ input {
   background-color: #e2e3e8;
 }
 
+.coverDiv {
+  max-height: 400px;
+}
+
+.coverDiv .coverImg {
+  width: 100%;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 300px;
+}
+
 .listCards {
   padding: 0;
   display: -webkit-box;
@@ -154,17 +166,31 @@ input {
 }
 
 .listCards li {
-  font-size: 1rem;
   margin: 0.5rem auto;
-  width: 75%;
-  text-align: center;
-  border-radius: 10px;
-  -webkit-box-shadow: 1px 5px 10px gray;
-          box-shadow: 1px 5px 10px gray;
-  padding: 1rem;
+  padding: 5px 0;
+  width: 100%;
+  border: 1px solid #9f9a9a;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.listCards li button {
+.listCards li img {
+  width: 40%;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 150px;
+  margin: 5px;
+}
+
+.listCards li div {
+  width: 100%;
+  text-align: center;
+}
+
+.listCards li div button {
   background-color: #ebecf0;
   border: none;
   padding: 0.5rem;
@@ -172,7 +198,7 @@ input {
   border-radius: 5px;
 }
 
-.listCards li button:hover {
+.listCards li div button:hover {
   background-color: #e2e3e8;
 }
 
@@ -194,13 +220,13 @@ input {
 
 .hotelList .popUp {
   width: 50%;
-  height: 50vh;
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background: rgba(146, 91, 91, 0.959);
+  border-radius: 10px;
+  background: rgba(234, 203, 203, 0.959);
 }
 
 .hotelList .popUp .popUpIn {
@@ -219,5 +245,65 @@ input {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.hotelList .popUp .popUpIn .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.hotelList .popUp .popUpIn .buttons button {
+  width: 49%;
+  padding: 1rem;
+  border: none;
+  background-color: #ebecf0;
+}
+
+.hotelList .popUp .popUpIn .buttons button:hover {
+  background-color: #e2e3e8;
+}
+
+.reservations {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.reservations .orders {
+  width: 50%;
+  margin: 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid #9f9a9a;
+}
+
+.reservations .orders .order {
+  list-style: none;
+}
+
+.reservations .popUp {
+  width: 50%;
+  text-align: center;
+}
+
+.reservations .popUp .buttons {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.reservations .popUp .buttons button {
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 0;
+  background-color: #ebecf0;
+}
+
+.reservations .popUp .buttons button:hover {
+  background-color: #e2e3e8;
 }
 /*# sourceMappingURL=App.css.map */

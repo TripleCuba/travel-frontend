@@ -45,16 +45,18 @@ const Hotel = () => {
             <ul className="listCards">
               {myHotel.map((room) => (
                 <li key={room.id}>
-                  <h1>{room.title}</h1>
-                  <h3>{room.room_number}</h3>
-                  <p>For {room.capacity} persons</p>
-                  <h3> {room.is_available ? "available" : "not available"}</h3>
-                  <button
-                    disabled={popUpStatus}
-                    onClick={() => handlePopUp(room.id, room)}
-                  >
-                    popup
-                  </button>
+                  <div>
+                    <h1>{room.title}</h1>
+                    <h3>{room.room_number}</h3>
+                    <p>For {room.capacity} persons</p>
+                    <p>From {room.price_per_guest}Eur</p>
+                    <button
+                      disabled={popUpStatus}
+                      onClick={() => handlePopUp(room.id, room)}
+                    >
+                      reserve!
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>

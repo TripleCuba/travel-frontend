@@ -46,10 +46,10 @@ export const getReservations = async (token) => {
   });
   return resp.data;
 };
-export const reserveRoom = async (id, token, guests) => {
+export const reserveRoom = async (id, token, guests, totalPrice) => {
   const resp = await axios.post(
     `${BASE_URL}/reserveRoom/${id}`,
-    { guests: guests },
+    { guests: guests, totalPrice: totalPrice },
     {
       headers: { Authorization: `Token ${token}` },
     }

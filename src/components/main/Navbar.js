@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/user";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
   const logOut = () => {
     localStorage.removeItem("token");
     dispatch(logout());
+    navigate("/home");
   };
   return (
     <div className="navBar">
