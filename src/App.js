@@ -14,11 +14,13 @@ import { login } from "./features/user";
 import Hotel from "./components/public/Hotel";
 import Reservations from "./components/private/Reservations";
 import Success from "./components/public/Success";
+import Profile from "./components/private/Profile";
 
 function App() {
   const dispatch = useDispatch();
   const setUser = async (token) => {
     const resp = await getUserData(token);
+    console.log(resp);
     resp > 201 && localStorage.removeItem("token");
 
     dispatch(
@@ -46,6 +48,7 @@ function App() {
         <Route path="/reservations" element={<Reservations />} />
         <Route path="register" element={<Registration />} />
         <Route path="login" element={<Login />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="success" element={<Success />} />
       </Routes>
     </div>

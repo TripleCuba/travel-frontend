@@ -83,8 +83,22 @@ input {
 }
 
 .accountsForm input {
-  border-radius: 10px;
+  border: 1px solid #9f9a9a;
+  border-radius: 5px;
   padding: 0.5rem;
+}
+
+.accountsForm label {
+  text-align: center;
+}
+
+.accountsForm .submit {
+  background-color: #ebecf0;
+  font-family: "TitleFont", sans-serif;
+}
+
+.accountsForm .submit:hover {
+  background-color: #e2e3e8;
 }
 
 .message {
@@ -94,6 +108,69 @@ input {
 .message p {
   font-size: 1.5rem;
   color: red;
+}
+
+.userInfo {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.userInfo .imageForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin: 2rem auto;
+  gap: 0.5rem;
+}
+
+.userInfo .message {
+  text-align: center;
+  color: white;
+  background-color: #29b929;
+  font-size: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+.userInfo img {
+  width: 50%;
+  min-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+  border-radius: 25%;
+}
+
+.userInfo .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.userInfo .profile p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.userInfo .profile button {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .destinationCards {

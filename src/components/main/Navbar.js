@@ -25,7 +25,9 @@ const Navbar = () => {
 
       {user.isAuthenticated ? (
         <div>
-          <button>Hey {user.username}</button>
+          <Link to="/profile">
+            <button>Hey {user.username}</button>
+          </Link>
           <Link to="/reservations">
             <button>Reservations</button>
           </Link>
