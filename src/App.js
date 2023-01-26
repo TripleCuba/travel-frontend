@@ -15,12 +15,16 @@ import Hotel from "./components/public/Hotel";
 import Reservations from "./components/private/Reservations";
 import Success from "./components/public/Success";
 import Profile from "./components/private/Profile";
+import UploadData from "./components/Manager/ManagerHome";
+import AddDestination from "./components/Manager/AddContent/AddDestination";
+import AddTown from "./components/Manager/AddContent/AddTown";
+import AddHotel from "./components/Manager/AddContent/AddHotel";
+import AddRoom from "./components/Manager/AddContent/AddRoom";
 
 function App() {
   const dispatch = useDispatch();
   const setUser = async (token) => {
     const resp = await getUserData(token);
-    console.log(resp);
     resp > 201 && localStorage.removeItem("token");
 
     dispatch(
@@ -33,7 +37,6 @@ function App() {
   };
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
     token && setUser(token);
   }, []);
   return (
@@ -50,6 +53,12 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="profile" element={<Profile />} />
         <Route path="success" element={<Success />} />
+        <Route path="admin" element={<UploadData />}>
+          <Route path="addDestination" element={<AddDestination />} />
+          <Route path="addTown" element={<AddTown />} />
+          <Route path="addHotel" element={<AddHotel />} />
+          <Route path="addRoom" element={<AddRoom />} />
+        </Route>
       </Routes>
     </div>
   );

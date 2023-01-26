@@ -12,6 +12,11 @@ export const getDestination = async (id) => {
   return resp.data;
 };
 
+export const getAllTowns = async () => {
+  const resp = await axios.get(`${BASE_URL}/all_towns/`);
+  return resp.data;
+};
+
 export const getTowns = async (id) => {
   const resp = await axios.get(`${BASE_URL}/town_list/${id}`);
   return resp.data;
@@ -19,6 +24,11 @@ export const getTowns = async (id) => {
 
 export const getTown = async (id) => {
   const resp = await axios.get(`${BASE_URL}/town/${id}`);
+  return resp.data;
+};
+
+export const getAllHotels = async (id) => {
+  const resp = await axios.get(`${BASE_URL}/all_hotels/`);
   return resp.data;
 };
 

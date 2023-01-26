@@ -12,10 +12,13 @@ const Town = () => {
   const { town } = useParams();
   const getHotelList = async (id) => {
     const resp = await getHotels(id);
-    console.log(resp);
-    setHotelList(resp);
-    let newTown = resp[0].town;
-    setCurrentTown(newTown);
+    if (resp.length) {
+      setHotelList(resp);
+      let newTown = resp[0].town;
+      setCurrentTown(newTown);
+    } else {
+      await getTownData(id);
+    }
   };
   const getTownData = async (id) => {
     const resp = await getTown(id);
@@ -26,7 +29,6 @@ const Town = () => {
   }, []);
   return (
     <div>
-      {!hotelList && getTownData(town)}
       <div className="coverDiv">
         <h1 className="title">{currentTown.title}</h1>
         <p className="paragraph">{currentTown.description}</p>
@@ -38,7 +40,7 @@ const Town = () => {
       </div>
 
       <ul className="listCards">
-        {hotelList.length &&
+        {hotelList.length ? (
           hotelList.map((hotel) => (
             <li key={hotel.id}>
               <img src={`${BASE_IMG_URL}/${hotel.image}`} alt="hotel" />
@@ -50,7 +52,10 @@ const Town = () => {
                 </button>
               </div>
             </li>
-          ))}
+          ))
+        ) : (
+          <h1>Sorry, no hotels available at this moment</h1>
+        )}
       </ul>
     </div>
   );

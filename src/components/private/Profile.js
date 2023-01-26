@@ -29,7 +29,7 @@ const Profile = () => {
     e.preventDefault();
     let fd = new FormData();
     fd.append("image", newImage);
-    console.log("newImage", newImage);
+    console.log("fd", fd);
     const resp = await updateProfileImg(token, fd);
     console.log(resp);
   };
