@@ -1,8 +1,15 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./admin.css";
 
 const UploadData = () => {
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.value);
+  useEffect(() => {
+    !user.isAdmin && navigate("/");
+  });
   return (
     <div>
       <div className="adminNav">

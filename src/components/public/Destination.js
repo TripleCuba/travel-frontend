@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { getTowns, getDestination } from "../../utils/apiCalls";
 
 const Destination = () => {
   const BASE_IMG_URL = "https://res.cloudinary.com/dkeewhdlg";
+  const user = useSelector((state) => state.user.value);
   const navigate = useNavigate();
   const { destination } = useParams();
   const [currentDestination, setCurrentDestination] = useState({});
   const [townList, setTownList] = useState([]);
   const getData = async (id) => {
     const towns = await getTowns(id);
+    console.log(towns);
     setTownList(towns);
     if (towns.length) {
       setCurrentDestination(towns[0].destination);

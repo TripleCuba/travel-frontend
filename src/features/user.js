@@ -4,6 +4,7 @@ const initialUserValue = {
   username: "",
   email: "",
   isAuthenticated: false,
+  isAdmin: false,
 };
 
 export const userSlice = createSlice({

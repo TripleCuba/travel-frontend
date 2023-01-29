@@ -25,6 +25,7 @@ function App() {
   const dispatch = useDispatch();
   const setUser = async (token) => {
     const resp = await getUserData(token);
+
     resp > 201 && localStorage.removeItem("token");
 
     dispatch(
@@ -32,6 +33,7 @@ function App() {
         username: resp.username,
         email: resp.email,
         isAuthenticated: true,
+        isAdmin: resp.is_admin,
       })
     );
   };

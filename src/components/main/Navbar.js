@@ -25,9 +25,12 @@ const Navbar = () => {
 
       {user.isAuthenticated ? (
         <div>
-          <Link to="/admin">
-            <button>Admin</button>
-          </Link>
+          {user.isAdmin && (
+            <Link to="/admin">
+              <button>Admin</button>
+            </Link>
+          )}
+
           <Link to="/profile">
             <button>Hey {user.username}</button>
           </Link>

@@ -103,6 +103,9 @@ input {
 
 .message {
   text-align: center;
+  background-color: #ebecf0;
+  border-radius: 5px;
+  padding: 1rem 0;
 }
 
 .message p {
@@ -173,6 +176,57 @@ input {
   padding: 1rem;
 }
 
+.managerPopUp {
+  width: 50%;
+  background-color: white;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  border: 1px solid #9f9a9a;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.managerPopUp .editForm {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.managerPopUp .editForm .formField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.managerPopUp .buttons {
+  width: 100%;
+}
+
+.managerPopUp .buttons button {
+  width: 50%;
+}
+
 .destinationCards {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,6 +258,22 @@ input {
 
 .destinationCards .card div {
   width: 100%;
+  display: block;
+}
+
+.destinationCards .card div .logos {
+  display: block;
+  text-align: end;
+}
+
+.destinationCards .card div .logos .logo {
+  margin: 0 0.5rem;
+  font-size: 20px;
+  color: #e2e3e8;
+}
+
+.destinationCards .card div .logos .logo:hover {
+  color: black;
 }
 
 .destinationCards .card button {

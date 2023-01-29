@@ -83,6 +83,9 @@ input {
 }
 .message {
   text-align: center;
+  background-color: $customGray;
+  border-radius: 5px;
+  padding: 1rem 0;
   p {
     font-size: 1.5rem;
     color: red;
@@ -129,6 +132,36 @@ input {
     }
   }
 }
+.managerPopUp {
+  width: 50%;
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  .editForm {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    .formField {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .buttons {
+    width: 100%;
+    button {
+      width: 50%;
+    }
+  }
+}
 .destinationCards {
   display: flex;
   flex-direction: column;
@@ -143,6 +176,19 @@ input {
     }
     div {
       width: 100%;
+      display: block;
+      .logos {
+        display: block;
+        text-align: end;
+        .logo {
+          margin: 0 0.5rem;
+          font-size: 20px;
+          color: $customHoverGray;
+        }
+        .logo:hover {
+          color: black;
+        }
+      }
     }
     display: flex;
     margin-top: 1rem;
