@@ -39,11 +39,14 @@ const EditPopUp = ({
     console.log(filteredData);
     let fd = new FormData();
     filteredData.forEach(([key, value]) => {
-      fd.append(key, value);
+      typeof value === "object"
+        ? fd.append(key, value.id)
+        : fd.append(key, value);
     });
     formImage && fd.append("image", formImage);
     const token = localStorage.getItem("token");
     const resp = await edit_call(token, formData.id, category, fd);
+    console.log(resp);
     if (resp.is_success) {
       setTrigger(false);
       setMessage(resp.message);
@@ -52,17 +55,21 @@ const EditPopUp = ({
     }
   };
 
-  const keys = Object.keys(obj);
+  const entries = Object.entries(obj);
   return (
     trigger && (
       <div className="managerPopUp">
         <h1>edit</h1>
         <form className="editForm">
-          {keys &&
-            keys.map((key) => {
-              if (key !== "image" && key !== "id") {
+          {entries &&
+            entries.map(([key, value]) => {
+              if (
+                key !== "image" &&
+                key !== "id" &&
+                typeof value !== "object"
+              ) {
                 return (
-                  <div className="formField" key={keys[key]}>
+                  <div className="formField" key={entries[key]}>
                     <label>{key}</label>
                     <input
                       name={key}

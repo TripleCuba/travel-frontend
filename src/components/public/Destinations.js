@@ -75,14 +75,20 @@ const Destinations = () => {
             <div>
               {user.isAdmin && (
                 <div className="logos">
-                  <BsFillPencilFill
+                  <button
                     className="logo"
                     onClick={() => handleEdit(item)}
-                  />
-                  <BsFillTrashFill
+                    disabled={deleteTrigger}
+                  >
+                    <BsFillPencilFill />
+                  </button>
+                  <button
                     onClick={() => handleDelete(item)}
                     className="logo"
-                  />
+                    disabled={editTrigger}
+                  >
+                    <BsFillTrashFill />
+                  </button>
                 </div>
               )}
 
