@@ -7,6 +7,7 @@ import { getRooms } from "../../utils/apiCalls";
 import ReservationPopUp from "./ReservationPopUp";
 
 const Hotel = () => {
+  const BASE_IMG_URL = "https://res.cloudinary.com/dkeewhdlg";
   const { hotel } = useParams();
   const [myHotel, setMyHotel] = useState();
   const [errMessage, setErrMessage] = useState();
@@ -45,6 +46,7 @@ const Hotel = () => {
             <ul className="listCards">
               {myHotel.map((room) => (
                 <li key={room.id}>
+                  <img src={`${BASE_IMG_URL}/${room.image}`} alt="room" />
                   <div>
                     <h1>{room.title}</h1>
                     <h3>{room.room_number}</h3>

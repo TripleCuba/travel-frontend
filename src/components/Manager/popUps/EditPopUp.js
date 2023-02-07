@@ -11,6 +11,7 @@ const EditPopUp = ({
   setObj,
   setMessage,
 }) => {
+  console.log(obj);
   const [formData, setFormData] = useState(obj);
   const [formImage, setFormImage] = useState();
   useEffect(() => {
@@ -34,7 +35,8 @@ const EditPopUp = ({
     let dataEntries = Object.entries(formData);
 
     let filteredData = dataEntries.filter(
-      ([key, value]) => key !== "id" && key !== "image" && value.length
+      ([key, value]) =>
+        key !== "id" && key !== "image" && value !== null && value.length
     );
     console.log(filteredData);
     let fd = new FormData();
@@ -44,6 +46,7 @@ const EditPopUp = ({
         : fd.append(key, value);
     });
     formImage && fd.append("image", formImage);
+    console.log(filteredData);
     const token = localStorage.getItem("token");
     const resp = await edit_call(token, formData.id, category, fd);
     console.log(resp);
@@ -66,6 +69,7 @@ const EditPopUp = ({
               if (
                 key !== "image" &&
                 key !== "id" &&
+                key !== "rating" &&
                 typeof value !== "object"
               ) {
                 return (

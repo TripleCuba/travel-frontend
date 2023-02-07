@@ -29,16 +29,21 @@ const Login = () => {
     e.preventDefault();
     const resp = await sendLoginForm(formData);
     console.log(resp);
-    localStorage.setItem("token", resp.token);
-    const user = await getUserData(resp.token);
-    dispatch(
-      login({
-        username: user.username,
-        email: user.email,
-        isAuthenticated: true,
-      })
-    );
-    navigate("/");
+    if (resp) {
+      localStorage.setItem("token", resp.token);
+      const user = await getUserData(resp.token);
+      dispatch(
+        login({
+          username: user.username,
+          email: user.email,
+          isAuthenticated: true,
+          isAdmin: user.is_admin,
+        })
+      );
+      navigate("/");
+    } else {
+      console.log("error");
+    }
   };
   return (
     <div>
